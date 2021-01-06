@@ -16,15 +16,7 @@
                 <property name="supportedMediaTypes" value="application/json"/>
                 <property name="features">
                     <list>
-                        <!--Map类型格式化，接收参数允许空值
-                        User{name, age} => new User('zhangsan') => user{username: 'zhangsan'}
-                        WriteMapNullValue
-                        User{name, age} => new User('zhangsan') => user{username: 'zhangsan',age:null}
-                        -->
                         <value>WriteMapNullValue</value>
-                        <!--日期类型格式化  数值15..... 毫秒级的时间戳
-                        WriteDateUseDateFormat yyyy-MM-dd hh:mm:ss
-                        -->
                         <value>WriteDateUseDateFormat</value>
                     </list>
                 </property>
