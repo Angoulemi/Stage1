@@ -118,4 +118,32 @@ public class CheckGroupServiceImpl implements CheckGroupService {
             }
         }
     }
+
+    @Override
+    public List<CheckGroup> findAll() {
+        return checkGroupDao.findAll();
+    }
+
+    /**
+    * @description: 删
+    * @author: Deshan
+    * @date: 2021/1/8 21:09
+    * @param: [id]
+    * @return: void
+    */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteById(int id) {
+        // 通过检查组id查询是否被套餐使用了
+        int count = checkGroupDao.findCountByCheckGroupId(id);
+        // 使用了，抛出异常
+        if(count > 0){
+            throw new HealthException("该检查组被套餐使用了，不能删除");
+        }
+        // 没使用，删除检查组与检查项的关系
+        checkGroupDao.deleteCheckGroupCheckItem(id);
+        // 删除检查组
+        checkGroupDao.deleteById(id);
+        // 事务控制
+    }
 }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.ds.health.dao.SetmealDao">
+    <insert id="add" parameterType="setmeal" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO t_setmeal(name, code, helpCode, sex, age, price, remark, attention, img)
+        VALUES (#{name}, #{code}, #{helpCode}, #{sex}, #{age}, #{price}, #{remark}, #{attention}, #{img})
+    </insert>
+
+    <insert id="addSetmealCheckGroup" parameterType="int">
+        INSERT INTO t_setmeal_checkgroup (setmeal_id, checkgroup_id)
+        VALUES (#{setmealId}, #{checkgroupId})
+    </insert>
+
+    <select id="findByCondition" parameterType="string" resultType="setmeal">
+        SELECT * FROM t_setmeal
+        <where>
+            <if test="value != null and value.length >0">
+                code LIKE #{queryString} OR name LIKE #{queryString} OR helpCode LIKE #{queryString}
+            </if>
+        </where>
+    </select>
+
+    <select id="findById" parameterType="int" resultType="setmeal">
+        SELECT *
+        FROM t_setmeal
+        WHERE id = #{id}
+    </select>
+
+    <select id="findCheckGroupIdsBySetmealId" parameterType="int" resultType="int">
+        SELECT checkgroup_id
+        FROM t_setmeal_checkgroup
+        WHERE setmeal_id = #{id}
+    </select>
+
+    <update id="update" parameterType="setmeal">
+        UPDATE t_setmeal
+        SET name=#{name},
+            code=#{code},
+            helpCode=#{helpCode},
+            sex=#{sex},
+            age=#{age},
+            price=#{price},
+            remark=#{remark},
+            attention=#{attention},
+            img=#{img}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteSetmealCheckGroup" parameterType="int">
+        DELETE
+        FROM t_setmeal_checkgroup
+        WHERE setmeal_id = #{id}
+    </delete>
+
+    <select id="findCountBySetmealId" parameterType="int" resultType="int">
+        SELECT COUNT(1)
+        FROM t_order
+        WHERE setmeal_id = #{id}
+    </select>
+
+    <delete id="deleteById" parameterType="int">
+        DELETE
+        FROM t_setmeal
+        WHERE id = #{id}
+    </delete>
+</mapper>

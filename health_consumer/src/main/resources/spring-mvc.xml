@@ -3,12 +3,33 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                   http://www.springframework.org/schema/beans/spring-beans.xsd
                   http://www.springframework.org/schema/mvc
                   http://www.springframework.org/schema/mvc/spring-mvc.xsd
                   http://code.alibabatech.com/schema/dubbo
                   http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+<!--    腾讯云配置-->
+<!--    <bean id="basicCOSCredentials" class="com.qcloud.cos.auth.BasicCOSCredentials">-->
+<!--        <constructor-arg value="${cos.client.secretId}" />-->
+<!--        <constructor-arg value="${cos.client.secretKey}" />-->
+<!--    </bean>-->
+
+<!--    <bean id="region" class="com.qcloud.cos.region.Region">-->
+<!--        <constructor-arg value="${cos.client.regionName}"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="clientConfig" class="com.qcloud.cos.ClientConfig">-->
+<!--        <constructor-arg ref="region" />-->
+<!--    </bean>-->
+
+<!--    <bean id="cosClient" class="com.qcloud.cos.COSClient">-->
+<!--        <constructor-arg index="0" type="com.qcloud.cos.auth.COSCredentials" ref="basicCOSCredentials"/>-->
+<!--        <constructor-arg index="1" type="com.qcloud.cos.ClientConfig" ref="clientConfig"/>-->
+<!--    </bean>-->
+
     <mvc:annotation-driven>
         <mvc:message-converters>
             <!--不需要视图解析器，项目中的所有的请求都返回json数据结构-->

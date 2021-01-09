@@ -75,4 +75,31 @@ public interface CheckGroupDao {
     * @return: void
     */
     void deleteCheckGroupCheckItem(Integer id);
+
+    /**
+    * @description: 查所有检查组
+    * @author: Deshan
+    * @date: 2021/1/8 20:03
+    * @param: []
+    * @return: java.util.List<org.ds.health.pojo.CheckGroup>
+    */
+    List<CheckGroup> findAll();
+
+    /**
+    * @description: 删
+    * @author: Deshan
+    * @date: 2021/1/8 21:07
+    * @param: [id]
+    * @return: void
+    */
+    void deleteById(int id);
+
+    /**
+    * @description: 查找关联项
+    * @author: Deshan
+    * @date: 2021/1/8 21:08
+    * @param: [id]
+    * @return: int
+    */
+    int findCountByCheckGroupId(int id);
 }

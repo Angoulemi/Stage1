@@ -92,4 +92,17 @@ public class CheckGroupController {
         return new Result(true, MessageConstant.EDIT_CHECKGROUP_SUCCESS);
     }
 
+    /**
+    * @description: 查所有检查组
+    * @author: Deshan
+    * @date: 2021/1/8 19:59
+    * @param: []
+    * @return: org.ds.health.entity.Result
+    */
+    @GetMapping("/findAll")
+    public Result findAll(){
+        List<CheckGroup> list = checkGroupService.findAll();
+        return new Result(true, MessageConstant.QUERY_CHECKGROUP_SUCCESS,list);
+    }
+
 }

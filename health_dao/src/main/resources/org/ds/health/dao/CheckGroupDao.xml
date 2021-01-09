@@ -51,4 +51,9 @@
         FROM t_checkgroup_checkitem
         WHERE checkgroup_id = #{id}
     </delete>
+
+    <select id="findAll" resultType="checkgroup">
+        SELECT *
+        FROM t_checkgroup
+    </select>
 </mapper>

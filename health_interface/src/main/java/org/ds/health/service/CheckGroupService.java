@@ -2,6 +2,7 @@ package org.ds.health.service;
 
 import org.ds.health.entity.PageResult;
 import org.ds.health.entity.QueryPageBean;
+import org.ds.health.exception.HealthException;
 import org.ds.health.pojo.CheckGroup;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,4 +59,20 @@ public interface CheckGroupService {
     * @return: void
     */
     void update(CheckGroup checkgroup, Integer[] checkitemIds);
+
+    /**
+    * @description: 查所有检查组
+    * @author: Deshan
+    * @date: 2021/1/8 20:01
+    * @param: []
+    * @return: java.util.List<org.ds.health.pojo.CheckGroup>
+    */
+    List<CheckGroup> findAll();
+
+    /**
+     * 通过id删除检查组
+     * @param id
+     */
+    void deleteById(int id) throws HealthException;
+
 }

@@ -1,12 +1,16 @@
 package org.ds.health.controller;
 
 import org.ds.health.entity.Result;
+import org.ds.health.exception.FakeException;
 import org.ds.health.exception.HealthException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * @author Sunst
+ */
 @RestControllerAdvice
 public class HealExceptionAdvice {
     
@@ -28,6 +32,13 @@ public class HealExceptionAdvice {
     public Result handleHealthException(HealthException he){
         return new Result(false, he.getMessage());
     }
+
+    @ExceptionHandler(FakeException.class)
+    public Result handleFakeException(FakeException he){
+        return new Result(false, he.getMessage());
+    }
+
+
 
     /**
     * @description: 处理未知异常
