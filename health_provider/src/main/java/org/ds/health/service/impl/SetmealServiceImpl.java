@@ -8,6 +8,8 @@ import org.ds.health.dao.SetmealDao;
 import org.ds.health.entity.PageResult;
 import org.ds.health.entity.QueryPageBean;
 import org.ds.health.exception.HealthException;
+import org.ds.health.pojo.CheckGroup;
+import org.ds.health.pojo.CheckItem;
 import org.ds.health.pojo.Setmeal;
 import org.ds.health.service.SetmealService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -135,5 +137,20 @@ public class SetmealServiceImpl implements SetmealService {
         setmealDao.deleteSetmealCheckGroup(id);
         // 再删除套餐
         setmealDao.deleteById(id);
+    }
+
+    @Override
+    public List<String> findImgs() {
+        return setmealDao.findImgs();
+    }
+
+    @Override
+    public List<Setmeal> findAll() {
+        return setmealDao.findAll();
+    }
+
+    @Override
+    public Setmeal findDetailById(int id) {
+        return setmealDao.findDetailById(id);
     }
 }

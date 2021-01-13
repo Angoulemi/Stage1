@@ -2,6 +2,8 @@ package org.ds.health.dao;
 
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Param;
+import org.ds.health.pojo.CheckGroup;
+import org.ds.health.pojo.CheckItem;
 import org.ds.health.pojo.Setmeal;
 
 import java.util.List;
@@ -96,4 +98,16 @@ public interface SetmealDao {
     */
     void deleteById(int id);
 
+    /**
+    * @description: 查询所有的图片名称
+    * @author: Deshan
+    * @date: 2021/1/9 20:18
+    * @param: []
+    * @return: java.util.List<java.lang.String>
+    */
+    List<String> findImgs();
+
+    List<Setmeal> findAll();
+
+    Setmeal findDetailById(int id);
 }

@@ -69,4 +69,17 @@ public interface SetmealService {
     * @return: void
     */
     void deleteById(int id) throws HealthException;
+
+    /**
+    * @description: 查询套餐的所有图片
+    * @author: Deshan
+    * @date: 2021/1/9 20:16
+    * @param: []
+    * @return: java.util.List<java.lang.String>
+    */
+    List<String> findImgs();
+
+    List<Setmeal> findAll();
+
+    Setmeal findDetailById(int id);
 }
