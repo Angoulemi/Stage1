@@ -101,4 +101,9 @@
         LIMIT 0,4
     </select>
 
+    <select id="findOrderCountBetweenDate" parameterType="string" resultType="int">
+        SELECT COUNT(1)
+        FROM t_order
+        WHERE orderDate BETWEEN #{startDate} AND #{endDate}
+    </select>
 </mapper>

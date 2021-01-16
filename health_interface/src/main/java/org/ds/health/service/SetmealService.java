@@ -6,6 +6,7 @@ import org.ds.health.exception.HealthException;
 import org.ds.health.pojo.Setmeal;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -82,4 +83,6 @@ public interface SetmealService {
     List<Setmeal> findAll();
 
     Setmeal findDetailById(int id);
+
+    List<Map<String, Object>> getSetmealReport();
 }

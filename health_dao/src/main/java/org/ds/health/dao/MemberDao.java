@@ -12,4 +12,12 @@ public interface MemberDao {
     Member findByTelephone(String telephone);
 
     void add(Member member);
+
+    int findMemberCountByDate(String today);
+
+    int findMemberTotalCount();
+
+    int findMemberCountAfterDate(String monday);
+
+    Integer findMemberCountBeforeDate(String month);
 }

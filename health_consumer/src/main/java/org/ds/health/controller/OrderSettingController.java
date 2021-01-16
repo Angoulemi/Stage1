@@ -34,6 +34,13 @@ public class OrderSettingController {
     @Reference
     private OrderSettingService orderSettingService;
 
+    /**
+    * @description: 批量导入预约设置
+    * @author: Deshan
+    * @date: 2021/1/13 19:53
+    * @param: [excelFile]
+    * @return: org.ds.health.entity.Result
+    */
     @PostMapping("/upload")
     public Result upload(MultipartFile excelFile){
         try {
@@ -62,6 +69,13 @@ public class OrderSettingController {
     }
 
 
+    /**
+    * @description: 通过月份查询预约设置信息
+    * @author: Deshan
+    * @date: 2021/1/13 19:53
+    * @param: [month]
+    * @return: org.ds.health.entity.Result
+    */
     @GetMapping("/getOrderSettingByMonth")
     public Result getOrderSettingByMonth(String month){
         // 按月查询预约设置信息
@@ -70,6 +84,13 @@ public class OrderSettingController {
     }
 
 
+    /**
+    * @description: 通过日期设置可预约的最大数
+    * @author: Deshan
+    * @date: 2021/1/13 19:53
+    * @param: [orderSetting]
+    * @return: org.ds.health.entity.Result
+    */
     @PostMapping("/editNumberByDate")
     public Result editNumberByDate(@RequestBody OrderSetting orderSetting){
         // 调用服务更新

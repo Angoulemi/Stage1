@@ -2,6 +2,8 @@ package org.ds.health.service;
 
 import org.ds.health.pojo.Member;
 
+import java.util.List;
+
 /**
  * @author :Deshan
  * @description:
@@ -12,4 +14,6 @@ public interface MemberService {
     Member findByTelephone(String telephone);
 
     void add(Member member);
+
+    List<Integer> getMemberReport(List<String> months);
 }

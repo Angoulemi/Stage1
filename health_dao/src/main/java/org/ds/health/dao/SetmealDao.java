@@ -7,6 +7,7 @@ import org.ds.health.pojo.CheckItem;
 import org.ds.health.pojo.Setmeal;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -110,4 +111,6 @@ public interface SetmealDao {
     List<Setmeal> findAll();
 
     Setmeal findDetailById(int id);
+
+    List<Map<String, Object>> getSetmealReport();
 }
